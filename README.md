@@ -10,7 +10,7 @@ You always stay in control:
 → Delete the bad ones  
 → Then post only the good ones automatically
 
-Bonus: you can also turn your best clips into NFTs on the Stellar network (very cheap & fast) so you truly own them and can earn royalties forever.
+**Bonus: you can also turn your best clips into NFTs on the Stellar network (very cheap & fast) so you truly own them and can earn royalties foreve**r.
 
 ## What makes ClipCash special?
 
