@@ -1,0 +1,51 @@
+"use client";
+
+import React from "react";
+
+interface SocialAccountCardProps {
+  platform: "tiktok" | "instagram" | "youtube";
+  label: string;
+  subtext: string;
+  icon?: React.ReactNode;
+  onConnect: (platform: string) => void;
+}
+
+export default function SocialAccountCard({
+  platform,
+  label,
+  subtext,
+  icon,
+  onConnect,
+}: SocialAccountCardProps) {
+  const handleClick = () => {
+    onConnect(platform);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onConnect(platform);
+    }
+  };
+
+  return (
+    <div
+      role="button"
+      tabIndex={0}
+      aria-label={`Connect ${label} account`}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      className="rounded-2xl bg-white dark:bg-zinc-900 p-6 flex flex-col items-center gap-4 cursor-pointer select-none border border-zinc-200 dark:border-zinc-800 transition-all duration-200 ease-in-out hover:border-zinc-400 dark:hover:border-zinc-500 hover:bg-zinc-50 dark:hover:bg-zinc-800/50"
+    >
+      <div className="flex items-center justify-center">
+        {icon ?? <span className="text-lg font-semibold">{label}</span>}
+      </div>
+      <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
+        {label}
+      </h3>
+      <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center">
+        {subtext}
+      </p>
+    </div>
+  );
+}
