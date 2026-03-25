@@ -1,105 +1,67 @@
-
+import ProgressCard from "@/components/ProgressCard";
+import Image from "next/image";
+import MetricsCards from "./MetricsCards";
 import ProcessDashboard from "./components/ProcessDashboard";
 import ConnectAccountsSection from "./components/ConnectAccountsSection";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-8 bg-zinc-50 dark:bg-black px-4 py-8">
-      <ProcessDashboard />
-
-
-import RecentProjects from "@/app/components/recentProject";
-
-export default function Home() {
-  return (
-    <>
-    
-    <RecentProjects />
-
-    </>
-
-
-
-
-import ProgressCard from "@/components/ProgressCard";
-
-import Image from "next/image";
-import MetricsCards from "./MetricsCards";
-
-export default function Home() {
-  return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="w-[80%] mx-auto">
-        <ProgressCard
-          percentage={87}
-          estimatedTimeRemaining="1 minute 15 seconds"
-        />
+      {/* Responsive container with proper breakpoints */}
+      <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+        
+        {/* Hero Section with responsive layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+          
+          {/* Hero Content - Left side on desktop, stacks on top for mobile/tablet */}
+          <div className="flex flex-col justify-center gap-6 text-center lg:text-left">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight text-black dark:text-zinc-50">
+              Transform Your Content with AI-Powered Clips
+            </h1>
+            <p className="text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+              Create viral-ready clips from your long-form content in seconds. 
+              Our AI analyzes, edits, and optimizes your videos for maximum engagement.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a
+                className="flex h-12 items-center justify-center gap-2 rounded-full bg-foreground px-6 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
+                href="/create"
+              >
+                Get Started
+              </a>
+              <a
+                className="flex h-12 items-center justify-center rounded-full border border-solid border-black/[.08] px-6 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+                href="/learn-more"
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
 
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+          {/* Auth Card / Process Dashboard - Right side on desktop, stacks below on mobile/tablet */}
+          <div className="flex items-center justify-center">
+            <div className="w-full max-w-lg">
+              <ProcessDashboard />
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      {/* Metrics Cards at the bottom */}
-      <MetricsCards />
-    </main>
-  </div>
 
+        {/* Progress Card Section */}
+        <div className="mb-12">
+          <ProgressCard
+            percentage={87}
+            estimatedTimeRemaining="1 minute 15 seconds"
+          />
+        </div>
+
+        {/* Connect Accounts Section */}
+        <div className="mb-12">
+          <ConnectAccountsSection />
+        </div>
+
+        {/* Metrics Cards at the bottom */}
+        <MetricsCards />
       </main>
-
-import Sidebar from "../components/navigation/Sidebar";
-
-export default function Home() {
-  return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white">
-      <Sidebar />
-      <main className="min-h-screen pl-64" />
-
-
     </div>
-
-
   );
 }
